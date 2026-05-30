@@ -12,12 +12,21 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
-# Defining the executable target
-add_executable(ODE_solver "ODE_solver.cpp" "ODE_solver.hpp")
+
+# Setting sources
+add_executable(ODE_solver 
+    src/main.cpp 
+    src/rk4.cpp 
+    src/std_euler.cpp 
+    src/sympl_euler.cpp
+)
 
 # Telling CMake where to look for the Eigen headers
 # This maps the root of your project directory
-target_include_directories(ODE_solver PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(ODE_solver PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include 
+    ${CMAKE_CURRENT_SOURCE_DIR}/third_party
+)
 
 # Compiler Performance Optimizations (Highly recommended for Eigen)
 # Eigen relies heavily on compiler optimizations. Without this, simulations will run very slowly.

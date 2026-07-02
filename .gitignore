@@ -1,6 +1,15 @@
+# Blocks Python cache files that clog up Visual Studio
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Blocks PyCharm project settings so they don't clash with VS
+.idea/
+
 # CMake Artifacts
 /build/
 /out/
+/Figures/
 CMakeFiles/
 CMakeCache.txt
 CMakeScripts/
@@ -14,6 +23,10 @@ Makefile
 *.user
 *.suo
 *.sln
+.venv/
+venv/
+ENV/
+env/
 
 # Compiled Binaries & Objects
 *.exe

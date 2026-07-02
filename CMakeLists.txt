@@ -20,6 +20,7 @@ add_executable(ODE_solver
     src/std_euler.cpp 
     src/sympl_euler.cpp
 )
+target_compile_definitions(ODE_solver PRIVATE PROJECT_ROOT_DIR="${CMAKE_SOURCE_DIR}")
 
 # Telling CMake where to look for the Eigen headers
 # This maps the root of your project directory

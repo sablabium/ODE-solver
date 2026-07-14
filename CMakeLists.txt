@@ -19,7 +19,7 @@ add_executable(ODE_solver
     src/rk4.cpp 
     src/std_euler.cpp 
     src/sympl_euler.cpp
-)
+ "src/rk45.cpp")
 target_compile_definitions(ODE_solver PRIVATE PROJECT_ROOT_DIR="${CMAKE_SOURCE_DIR}")
 
 # Telling CMake where to look for the Eigen headers
